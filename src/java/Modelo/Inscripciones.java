@@ -9,7 +9,7 @@ package Modelo;
  *
  * @author USER
  */
-public class Inscribciones {
+public class Inscripciones {
    
     
     int IdEst;
@@ -18,7 +18,7 @@ public class Inscribciones {
     char[] Fecha_fin;
     int nota;
 
-    public Inscribciones(int IdEst, int IdCurso, char[] Fecha_ins, char[] Fecha_fin, int nota) {
+    public Inscripciones(int IdEst, int IdCurso, char[] Fecha_ins, char[] Fecha_fin, int nota) {
         this.IdEst = IdEst;
         this.IdCurso = IdCurso;
         this.Fecha_ins = Fecha_ins;

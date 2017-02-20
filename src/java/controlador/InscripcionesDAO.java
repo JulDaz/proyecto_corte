@@ -5,7 +5,7 @@
  */
 package controlador;
 
-import Modelo.Inscribciones;
+import Modelo.Inscripciones;
 import Modelo.Profesor;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -16,11 +16,11 @@ import java.util.ArrayList;
  *
  * @author USER
  */
-public class InscribcionesDAO {
+public class InscripcionesDAO {
     
     private RandomAccessFile InscribcionseDB;
-    private Inscribciones in;
-    private ArrayList<Inscribciones> ain = new ArrayList<>();
+    private Inscripciones in;
+    private ArrayList<Inscripciones> ain = new ArrayList<>();
     
     public int idEst;
     public int idCur;
@@ -28,10 +28,10 @@ public class InscribcionesDAO {
     public String fef = "";
     public int nota;
     
-    public InscribcionesDAO() throws FileNotFoundException {
-        this.InscribcionseDB = new RandomAccessFile("Inscribciones.txt", "rw");
+    public InscripcionesDAO() throws FileNotFoundException {
+        this.InscribcionseDB = new RandomAccessFile("C:\\Users\\crist\\Desktop\\Inscribciones.txt", "rw");
     }
-     public boolean insertar(Inscribciones Incribcion) throws IOException {
+     public boolean insertar(Inscripciones Incribcion) throws IOException {
         long posicionMemoria = this.InscribcionseDB.length();
         this.InscribcionseDB.seek(posicionMemoria);
         
@@ -53,15 +53,16 @@ public class InscribcionesDAO {
         this.InscribcionseDB.writeInt(Incribcion.getNota());
         return true;
     }
-     public boolean actualizar(Inscribciones Inscribcion) {
+     public boolean actualizar(Inscripciones Inscribcion) {
 
         return false;
     }
 
-    public boolean borrar(Inscribciones Incribcion) {
+    public boolean borrar(Inscripciones Incribcion) {
         return false;
     }
-        public ArrayList<Inscribciones> listarTodo() throws IOException {
+        
+    public ArrayList<Inscripciones> listarTodo() throws IOException {
         for (long i = 0; i < this.InscribcionseDB.length(); i = i + 92) {
             this.InscribcionseDB.seek(i);
             idEst = this.InscribcionseDB.readInt();
@@ -73,7 +74,7 @@ public class InscribcionesDAO {
                 fef = fef + this.InscribcionseDB.readChar();
             }
             nota = this.InscribcionseDB.readInt();
-            in = new Inscribciones(idEst, idCur, fei.toCharArray(),fei.toCharArray(), nota);
+            in = new Inscripciones(idEst, idCur, fei.toCharArray(),fei.toCharArray(), nota);
             ain.add(in);
         }
         return ain;

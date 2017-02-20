@@ -5,7 +5,7 @@
  */
 package controlador;
 
-import Modelo.Inscribciones;
+import Modelo.Inscripciones;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class inscripciones extends HttpServlet {
 
-    InscribcionesDAO ins;
+    InscripcionesDAO ins;
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -33,16 +33,15 @@ public class inscripciones extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            int IdEst=Integer.valueOf(request.getParameter("IdEst"));
-            int IdCurso=Integer.valueOf(request.getParameter("IdCurso"));
-            char [] Fecha_ins=request.getParameter("fecha_ins").toCharArray();
-            char[] Fecha_fin=request.getParameter("fecha_fin").toCharArray();
-            int Nota=Integer.valueOf(request.getParameter("Nota"));
             
-            Inscribciones inscr=new Inscribciones(IdEst, IdCurso, Fecha_ins, Fecha_fin, Nota);
-            System.out.println(inscr);
-            ins=new InscribcionesDAO();
+            int IdEst=Integer.valueOf(request.getParameter("idEstu"));
+            int IdCurso=Integer.valueOf(request.getParameter("idCurso"));
+            char [] Fecha_ins=request.getParameter("fechainscripcion").toCharArray();
+            char[] Fecha_fin=request.getParameter("fechafinalizacion").toCharArray();
+            int Nota=Integer.valueOf(request.getParameter("nota"));
+            
+            Inscripciones inscr=new Inscripciones(IdEst, IdCurso, Fecha_ins, Fecha_fin, Nota);
+            ins=new InscripcionesDAO();
             ins.insertar(inscr);
             ins.listarTodo();
             ins.destructor();
