@@ -15,11 +15,12 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author USER
+ * @author crist
  */
-public class inscripciones extends HttpServlet {
+public class inscripcion extends HttpServlet {
 
     InscripcionesDAO ins;
+    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -31,21 +32,32 @@ public class inscripciones extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             
-            int IdEst=Integer.valueOf(request.getParameter("idEstu"));
-            int IdCurso=Integer.valueOf(request.getParameter("idCurso"));
-            char [] Fecha_ins=request.getParameter("fechainscripcion").toCharArray();
-            char[] Fecha_fin=request.getParameter("fechafinalizacion").toCharArray();
-            int Nota=Integer.valueOf(request.getParameter("nota"));
+            int IdEst = Integer.valueOf(request.getParameter("idEstu"));
+            int IdCurso = Integer.valueOf(request.getParameter("idCurso"));
+            char[] fechain = request.getParameter("fechainscripcion").toCharArray();
+            char[] fechafin = request.getParameter("fechafinalizacion").toCharArray();
+            int Nota = Integer.valueOf(request.getParameter("nota"));
             
-            Inscripciones inscr=new Inscripciones(IdEst, IdCurso, Fecha_ins, Fecha_fin, Nota);
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet inscripcion</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("</body>");
+            out.println("</html>");
+            
+            
+             Inscripciones inscr=new Inscripciones(IdEst, IdCurso, fechain, fechafin, Nota);
             ins=new InscripcionesDAO();
             ins.insertar(inscr);
             ins.listarTodo();
             ins.destructor();
-            
             
         }
     }

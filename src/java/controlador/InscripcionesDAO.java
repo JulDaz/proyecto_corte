@@ -20,7 +20,6 @@ public class InscripcionesDAO {
     
     private RandomAccessFile InscribcionseDB;
     private Inscripciones in;
-    private ArrayList<Inscripciones> ain = new ArrayList<>();
     
     public int idEst;
     public int idCur;
@@ -29,7 +28,7 @@ public class InscripcionesDAO {
     public int nota;
     
     public InscripcionesDAO() throws FileNotFoundException {
-        this.InscribcionseDB = new RandomAccessFile("C:\\Users\\crist\\Desktop\\Inscribciones.txt", "rw");
+        this.InscribcionseDB = new RandomAccessFile("Inscribciones.txt", "rw");
     }
      public boolean insertar(Inscripciones Incribcion) throws IOException {
         long posicionMemoria = this.InscribcionseDB.length();
@@ -66,18 +65,21 @@ public class InscripcionesDAO {
         for (long i = 0; i < this.InscribcionseDB.length(); i = i + 92) {
             this.InscribcionseDB.seek(i);
             idEst = this.InscribcionseDB.readInt();
+            System.out.println(idEst);
             idCur = this.InscribcionseDB.readInt();
+            System.out.println(idCur);
             for (int j = 0; j < 20; j++) {
                 fei = fei + this.InscribcionseDB.readChar();
             }
+            System.out.println(fei);
             for (int k = 0; k < 20; k++) {
                 fef = fef + this.InscribcionseDB.readChar();
             }
+            System.out.println(fef);
             nota = this.InscribcionseDB.readInt();
-            in = new Inscripciones(idEst, idCur, fei.toCharArray(),fei.toCharArray(), nota);
-            ain.add(in);
+            
         }
-        return ain;
+        return null;
     }
        public void destructor() throws IOException {
         this.InscribcionseDB.close();

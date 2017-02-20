@@ -25,6 +25,11 @@ public class ProfesorDAO {
     public String nuevo2="";
     public int ext;
     
+    public int id2;
+    public String nuevo3="";
+    public String nuevo4="";
+    public int ext2;
+    
     public ProfesorDAO() throws FileNotFoundException {
         this.profesorDB = new RandomAccessFile("C:\\Users\\crist\\Desktop\\profesor.txt", "rw");
     }
@@ -67,14 +72,18 @@ public class ProfesorDAO {
     public ArrayList<Profesor> listarTodo() throws IOException {
         for (long i = 0; i < this.profesorDB.length(); i = i + 88) {
             this.profesorDB.seek(i);
-            System.out.println(this.profesorDB.readInt());
+            id2 = this.profesorDB.readInt();
+            System.out.println(id2);
             for (int j = 0; j < 20; j++) {
-                System.out.print(this.profesorDB.readChar());
+                nuevo3 = nuevo3 + this.profesorDB.readChar();
             }
+            System.out.println(nuevo3);
             for (int k = 0; k < 20; k++) {
-                System.out.print(this.profesorDB.readChar());
+                nuevo4 = nuevo4 + this.profesorDB.readChar();
             }
-            System.out.println(this.profesorDB.readInt());
+            System.out.println(nuevo4);
+            ext2 = this.profesorDB.readInt();
+            System.out.println(ext2);
             System.out.println("");
         }
         return null;
@@ -92,7 +101,6 @@ public class ProfesorDAO {
             nuevo2 = nuevo2 + this.profesorDB.readChar();
         }
         ext = this.profesorDB.readInt();
-        System.out.println("");
 
     }
 

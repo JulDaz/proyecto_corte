@@ -49,6 +49,7 @@ public class estudiante extends HttpServlet {
                 Estudiantes estudiante = new Estudiantes(id, nombre2, apellido2, tel);
                 estu = new EstudianteDAO();
                 estu.insertar(estudiante);
+                estu.listarTodo();
                 estu.destructor();
         }
     }

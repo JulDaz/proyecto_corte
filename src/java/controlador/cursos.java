@@ -46,7 +46,7 @@ public class cursos extends HttpServlet {
                 Cursos curso = new Cursos(codigo, nombre2, dur, idprof);
                 cur = new CursosDao();
                 cur.insertar(curso);
-                cur.ListarUnitario(101);
+                cur.listarTodo();
                 cur.destructor();
             }
     }

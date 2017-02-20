@@ -45,6 +45,7 @@ public class profesores extends HttpServlet {
             Profesor pro = new Profesor(id, nombre2, apellido2, extencion);
             prodao = new ProfesorDAO();
             prodao.insertar(pro);
+            prodao.listarTodo();
             prodao.destructor();
         }
     }

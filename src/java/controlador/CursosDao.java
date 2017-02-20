@@ -25,6 +25,11 @@ public class CursosDao {
     public int dur;
     public int idProf;
     
+    public int codigo2;
+    public String nuevo2="";
+    public int dur2;
+    public int idProf2;
+    
     public CursosDao() throws FileNotFoundException {
         this.CursosDataBase = new RandomAccessFile("C:\\Users\\crist\\Desktop\\cursos.txt", "rw");
     }
@@ -63,12 +68,16 @@ public class CursosDao {
     public ArrayList<Cursos> listarTodo() throws IOException {
         for (long i = 0; i < this.CursosDataBase.length(); i = i + 52) {
             this.CursosDataBase.seek(i);
-            System.out.println(this.CursosDataBase.readInt());
+            codigo2 = this.CursosDataBase.readInt();
+            System.out.println(codigo2);
             for (int j = 0; j < 20; j++) {
-                System.out.print(this.CursosDataBase.readChar());
+                nuevo2 = nuevo2 + this.CursosDataBase.readChar();
             }
-            System.out.println(this.CursosDataBase.readInt());
-            System.out.println(this.CursosDataBase.readInt());
+            System.out.println(nuevo2);
+            dur2 = this.CursosDataBase.readInt();
+            System.out.println(dur2);
+            idProf2 = this.CursosDataBase.readInt();
+            System.out.println(idProf2);
             System.out.println("");
         }
         return null;
@@ -79,17 +88,12 @@ public class CursosDao {
         long posm = arbol.Buscar(identificacion);
         this.CursosDataBase.seek(posm);
         codigo = this.CursosDataBase.readInt();
-        System.out.println(codigo);
         for (int j = 0; j < 20; j++) {
             nuevo1 = nuevo1 + this.CursosDataBase.readChar();
            
         }
-        System.out.println(nuevo1);
         dur = this.CursosDataBase.readInt();
-        System.out.println(dur);
         idProf = this.CursosDataBase.readInt();
-        System.out.println(idProf);
-        System.out.println("");
     }
 
     public void destructor() throws IOException {

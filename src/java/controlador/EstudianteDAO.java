@@ -24,6 +24,11 @@ public class EstudianteDAO {
     public String nuevo2="";
     public int tel;
     
+    public int id2;
+    public String nuevo3="";
+    public String nuevo4="";
+    public int tel2;
+    
     public EstudianteDAO() throws FileNotFoundException {
         this.EstudianteDB = new RandomAccessFile("C:\\Users\\crist\\Desktop\\estudiante.txt", "rw");
     }
@@ -65,14 +70,18 @@ public class EstudianteDAO {
     public ArrayList<Estudiantes> listarTodo() throws IOException {
         for (long i = 0; i < this.EstudianteDB.length(); i = i + 88) {
             this.EstudianteDB.seek(i);
-            System.out.println(this.EstudianteDB.readInt());
+            id2 = this.EstudianteDB.readInt();
+            System.out.println(id2);
             for (int j = 0; j < 20; j++) {
-                System.out.print(this.EstudianteDB.readChar());
+                nuevo3 = nuevo3 + this.EstudianteDB.readChar();
             }
+            System.out.println(nuevo3);
             for (int k = 0; k < 20; k++) {
-                System.out.print(this.EstudianteDB.readChar());
+                nuevo4 = nuevo4 + this.EstudianteDB.readChar();
             }
-            System.out.println(this.EstudianteDB.readInt());
+            System.out.println(nuevo4);
+            tel2 = this.EstudianteDB.readInt();
+            System.out.println(tel2);
             System.out.println("");
         }
         return null;
@@ -90,7 +99,6 @@ public class EstudianteDAO {
             nuevo2 = nuevo2 + this.EstudianteDB.readChar();
         }
         tel = this.EstudianteDB.readInt();
-        System.out.println("");
     }
 
     public void destructor() throws IOException {
