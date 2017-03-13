@@ -7,11 +7,11 @@
 <html>
     <head>
         <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
-        <title>Busqueda Profesor
+        <title>Busqueda Producto
         </title></head><body>
             <div style="text-align: center;">
                 <form method="get" action="BuscarProducto" name="BuscarProducto">
-                    Buscar Profesor<br>
+                    Buscar Producto<br>
                     <br>Por favor ingrese el ID del Producto que desea encontrar:<br>
                      ID: <input name="id" type="text"><br>
                     <br>

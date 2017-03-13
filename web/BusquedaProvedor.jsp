@@ -11,11 +11,11 @@
 <html>
     <head>
         <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
-        <title>Buscar Estudiante
+        <title>Buscar Proveedor
         </title></head><body>
             <div style="text-align: center;">
                 <form method="get" action="BuscarAlumno" name="BuscarAlumno">
-                    Buscar Estudiante<br>
+                    Buscar Proveedor<br>
                     <br>Por favor ingrese el ID del Provedor que desea encontrar:<br>
                      ID: <input name="id" type="text"><br>
                     <br>
