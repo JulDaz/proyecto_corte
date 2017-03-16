@@ -15,9 +15,9 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author crist
+ * @author Labing
  */
-public class BusquedaEmpleado extends HttpServlet {
+public class BusquedaProductos extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,16 +32,22 @@ public class BusquedaEmpleado extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+          
+      
             /* TODO output your page here. You may use following sample code. */         
-            String codigo = request.getParameter("codigo");
-            Modelo.Empleado emp = new Modelo.Empleado(Integer.parseInt(codigo),null,0, 0);
+            String codigo = request.getParameter("id");
+            Modelo.Producto pro = new Modelo.Producto(Integer.parseInt(codigo),null,0,0);
             
-            RequestDispatcher dispacher =request.getRequestDispatcher("BusquedaEmpleado.jsp");
+            RequestDispatcher dispacher =request.getRequestDispatcher("BusquedaProductos.jsp");
             
-            request.setAttribute("empleado", emp);
+            request.setAttribute("producto", pro);
             dispacher.forward(request, response);
         }
     }
+
+        
+    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

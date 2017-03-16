@@ -15,11 +15,11 @@ public class Empleado {
     int duracion;
     int pago;
 
-    public Empleado(int codigo, char[] nombre, int duracion, int pago) {
+    public Empleado(int codigo, char[] nombre, int duracion) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.duracion = duracion;
-        this.pago = pago;
+        
     }
 
     public int getCodigo() {
@@ -46,13 +46,7 @@ public class Empleado {
         this.duracion = duracion;
     }
 
-    public int getpago() {
-        return pago;
-    }
-
-    public void setpago(int pago) {
-        this.pago = pago;
-    }
+    
     
     
     

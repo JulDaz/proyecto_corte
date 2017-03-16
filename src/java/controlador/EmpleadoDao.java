@@ -31,9 +31,9 @@ public class EmpleadoDao {
     public int pago2;
     
     public EmpleadoDao() throws FileNotFoundException {
-        this.EmpleadoDataBase = new RandomAccessFile("empleado.txt", "rw");
+        this.EmpleadoDataBase = new RandomAccessFile("C:\\Users\\USER\\Desktop\\empleado.txt", "rw");
     }
-  
+
    
     public boolean insertar(Empleado empleado) throws IOException {
         long posicionMemoria = this.EmpleadoDataBase.length();
@@ -50,8 +50,6 @@ public class EmpleadoDao {
         this.EmpleadoDataBase.seek(posicionMemoria + 44);
 
         this.EmpleadoDataBase.writeInt(empleado.getDuracion());
-
-        this.EmpleadoDataBase.writeInt(empleado.getpago());
 
         return true;
     }
@@ -76,8 +74,6 @@ public class EmpleadoDao {
             System.out.println(nuevo2);
             dur2 = this.EmpleadoDataBase.readInt();
             System.out.println(dur2);
-            pago2 = this.EmpleadoDataBase.readInt();
-            System.out.println(pago2);
             System.out.println("");
         }
         return null;
@@ -93,7 +89,6 @@ public class EmpleadoDao {
            
         }
         dur = this.EmpleadoDataBase.readInt();
-        pago = this.EmpleadoDataBase.readInt();
     }
 
     public void destructor() throws IOException {

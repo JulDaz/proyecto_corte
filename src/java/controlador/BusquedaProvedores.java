@@ -5,21 +5,20 @@
  */
 package controlador;
 
+import Modelo.Provedor;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import Modelo.Producto;
 
 /**
  *
  * @author Labing
  */
-public class producto extends HttpServlet {
-
-    ProductoDao prodao;
+public class BusquedaProvedores extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,19 +33,14 @@ public class producto extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-
-            int id = Integer.valueOf(request.getParameter("id"));
-            char[] nombre2 = request.getParameter("nombre").toCharArray();
-            int cantidad = Integer.valueOf(request.getParameter("apellido"));
-            int valor = Integer.valueOf(request.getParameter("valor"));
-            
-            
             /* TODO output your page here. You may use following sample code. */
-            Producto pro = new Producto(id, nombre2, cantidad, valor);
-            prodao = new ProductoDao();
-            prodao.insertar(pro);
-            prodao.listarTodo();
-            prodao.destructor();
+          String id = request.getParameter("id");
+            Provedor pro = new Provedor(Integer.parseInt(id),null,null, 0);
+            
+            RequestDispatcher dispacher =request.getRequestDispatcher("BusquedaProvedor.jsp");
+            
+            request.setAttribute("provedor", pro);
+            dispacher.forward(request, response);
         }
     }
 
