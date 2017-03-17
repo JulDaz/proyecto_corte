@@ -4,7 +4,7 @@
         <servlet-name>Ejemplo</servlet-name>
         <servlet-class>controlador.productos</servlet-class>
     </servlet>
-     <servlet>
+    <servlet>
         <servlet-name>BusquedaEmpleados</servlet-name>
         <servlet-class>controlador.BusquedaEmpleados</servlet-class>
     </servlet>
@@ -28,8 +28,10 @@
         <servlet-name>provedores</servlet-name>
         <servlet-class>controlador.provedores</servlet-class>
     </servlet>
-    
-    
+    <servlet>
+        <servlet-name>ListaProductos</servlet-name>
+        <servlet-class>controlador.ListaProductos</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Ejemplo</servlet-name>
         <url-pattern>/Ingresodocentes</url-pattern>
@@ -57,6 +59,10 @@
     <servlet-mapping>
         <servlet-name>provedores</servlet-name>
         <url-pattern>/provedores</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListaProductos</servlet-name>
+        <url-pattern>/ListaProductos</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

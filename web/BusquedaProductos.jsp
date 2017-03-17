@@ -8,10 +8,10 @@
     <head>
         <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
         <title>Busqueda Producto
-        </title></head><body>
+        </title></head><body Background="lel.jpg">
             <div style="text-align: center;">
                 <form method="get" action="BusquedaProductos" name="BusquedaProductos">
-                    Buscar Producto<br>
+                     <FONT FACE="impact" SIZE="6" COLOR="black"> Buscar Productos</FONT><br>
                     <br>Por favor ingrese el ID del Producto que desea encontrar:<br>
                      ID: <input name="id" type="text"><br>
                     <br>
@@ -28,7 +28,7 @@
                int valor = prd.ext;
         %>   
           <br>
-        <table >
+        <table style="position:absolute;top:200px;left:600px ">
             <tr>
                <td>Id</td>
                <td>descripcion</td> 

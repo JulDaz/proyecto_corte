@@ -12,10 +12,10 @@
     <head>
         <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
         <title>Buscar Proveedor
-        </title></head><body>
+        </title></head><body Background="lel.jpg">
             <div style="text-align: center;">
                 <form method="get" action="BusquedaProvedores" name="BusquedaProvedores">
-                    Buscar Proveedor<br>
+                     <FONT FACE="impact" SIZE="6" COLOR="black"> Buscar Provedor </FONT><br>
                     <br>Por favor ingrese el ID del Provedor que desea encontrar:<br>
                      ID: <input name="id" type="text"><br>
                     <br>
@@ -32,7 +32,7 @@
                int tel = est.tel;
         %>   
           <br>
-        <table >
+        <table style="position:absolute;top:200px;left:600px ">
             <tr>
                <td>Id</td>
                <td>Nombre</td> 

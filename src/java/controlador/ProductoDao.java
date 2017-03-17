@@ -74,9 +74,10 @@ public class ProductoDao {
     public ArrayList<Producto> listarTodo() throws IOException {
         
         
-        
+        ArrayList<Producto> lista=new ArrayList<Producto>();
         
         for (long i = 0; i < this.productoDB.length(); i = i + 88) {
+            nuevo3="";
             this.productoDB.seek(i);
             id2 = this.productoDB.readInt();
             System.out.println(id2);
@@ -93,8 +94,10 @@ public class ProductoDao {
             ext2 = this.productoDB.readInt();
             System.out.println(ext2);
             System.out.println("");
+            Producto c=new Producto(id2, nuevo3.toCharArray(), nuevo4, ext);
+            lista.add(c);
         }
-        return null;
+        return lista;
     }
 
     public void ListarUnitario(int identificacion) throws IOException {

@@ -8,6 +8,8 @@ package controlador;
 import Modelo.Producto;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -34,18 +36,22 @@ public class productos extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-          
+          ArrayList a =new ArrayList();
             int id = Integer.valueOf(request.getParameter("id"));
             char[] nombre2 = request.getParameter("Descripcion").toCharArray();
             int cantidad = Integer.valueOf(request.getParameter("Cantidad"));
-            int valor = Integer.valueOf(request.getParameter("ValorTotal"));
+            int valor = Integer.valueOf(request.getParameter("Precio"));
             
             
             /* TODO output your page here. You may use following sample code. */
             Producto pro = new Producto(id, nombre2, cantidad, valor);
             prodao = new ProductoDao();
+       
             prodao.insertar(pro);
-            prodao.listarTodo();
+            a=prodao.listarTodo();
+             RequestDispatcher dispacher =request.getRequestDispatcher("BusquedaProductos.jsp");
+                 request.setAttribute("Lista", pro);
+            dispacher.forward(request, response);
             prodao.destructor();
         }
     }

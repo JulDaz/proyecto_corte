@@ -1,8 +1,4 @@
-<%-- 
-    Document   : BusquedaEmpleado
-    Created on : 12/03/2017, 01:03:35 PM
-    Author     : User7
---%>
+
 
 <%@page import="controlador.EmpleadoDao"%>
 <%@page import="Modelo.Empleado"%>
@@ -12,10 +8,10 @@
     <head>
         <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
         <title>Buscar Empleado
-        </title></head><body>
+        </title></head><body Background="lel.jpg">
             <div style="text-align: center;">
                     <form method="get" action="BusquedaEmpleados" name="BusquedaEmpleados">
-                    Buscar Empleado<br>
+                     <FONT FACE="impact" SIZE="6" COLOR="black"> Buscar Empleado </FONT><br>
                     <br>Por favor ingrese el Codigo del Empleado que desea encontrar:<br>
                      ID: <input name="codigo" type="text"><br>
                     <br>
@@ -29,21 +25,21 @@
                int id = empleado.codigo;
                String nombre = empleado.nuevo1;
                int dura = empleado.dur;
-               int Pagar = empleado.pago;
+             
         %>   
           <br>
-        <table >
+        <table style="position:absolute;top:200px;left:600px ">
             <tr>
                <td>Codigo</td>
                <td>Nombre</td> 
                <td>Duracion</td>
-               <td>Id del Profesor</td> 
+              
             </tr>
             <tr>
                <td><%=id%></td>
                <td><%=nombre%></td>
                <td><%=dura%></td>
-               <td><%=Pagar%></td> 
+               
         </tr>
         </table>
         
